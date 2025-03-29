@@ -3,14 +3,14 @@
 		<div class="col-lg-8 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">User Data-Table</h4>					
+					<h4 class="card-title">جدول بيانات المستخدمين</h4>
 					<p class="card-description">
-						User information table 
+						جدول يحتوي على معلومات المستخدمين
 					</p>
 					<table class="table table-hover">
 						<thead>
 							<tr class="bg-slate-800">
-								@foreach(["Name", "Email", "Created at", "Action"] as $heading)
+								@foreach(["الاسم", "البريد الإلكتروني", "تاريخ الإنشاء", "الإجراء"] as $heading)
 									<th class="font-bold text-white">{{$heading}}</th>
 								@endforeach
 							</tr>
@@ -18,10 +18,10 @@
 						<tbody>
 							@if ($isAdmin === false)
 							<tr>
-								<td>Only Admin can</td>
-								<td>view or edit</td>								
-								<td>users</td>								
-								<td>data</td>
+								<td>فقط المدير يمكنه</td>
+								<td>عرض أو تعديل</td>
+								<td>المستخدمين</td>
+								<td>والبيانات</td>
 							</tr>
 							@else
 								@foreach($data as $data)
@@ -36,16 +36,16 @@
 												@csrf
 
 								        <div class="form-group">
-								        	<button 
-								        		type="submit" 
-								        		class="badge badge-danger cursor-pointer" 
+								        	<button
+								        		type="submit"
+								        		class="badge badge-danger cursor-pointer"
 								        		onclick="return confirmDeleteUser({{ $data->id }} , '{{ $data->name }}');"
-								        		>Delete</button>
+								        		>حذف</button>
 								        </div>
 								    </form>
 									</td>
 									@else
-									<td><p class="badge badge-dark">Not allowded</p></td>
+									<td><p class="badge badge-dark">غير مسموح</p></td>
 									@endif
 								</tr>
 								@endforeach
@@ -58,7 +58,7 @@
 	</div>
 	<script>
   function confirmDeleteUser(id, name) {
-      if(!confirm("Are You Sure to delete this user, Named: " + name + ", Id: " + id + "." ))
+      if(!confirm("هل أنت متأكد من حذف هذا المستخدم؟ الاسم: " + name + "، المعرف: " + id + "." ))
       event.preventDefault();
   }
  </script>

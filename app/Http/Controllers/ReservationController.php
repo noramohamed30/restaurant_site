@@ -49,7 +49,9 @@ class ReservationController extends Controller
         $data->person = $request->person;
 
         $data->save();
-        
-        return redirect()->back()->with('msg', 'Reservation made successfully');
+        return redirect()->back()->with('success', 'تم الحجز بنجاح! سنقوم بالتواصل معك قريبًا.');
+
+        // return redirect()->back()->with('msg', 'تم حجز الطاولة بنجاح!');
+        // return redirect()->back()->with('msg', 'Reservation made successfully');
     }
 }

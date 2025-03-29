@@ -4,59 +4,59 @@
 			<div class="col-md-6 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Special Dishes Form</h4>
-						<p class="card-description">Edit special dishes info</p>
+						<h4 class="card-title">نموذج تعديل الأطباق الخاصة</h4>
+						<p class="card-description">تعديل بيانات الطبق الخاص</p>
 						<form action="{{ route('specialdishes.update', $data->id ) }}" method="post" enctype="multipart/form-data">
 							@method('PUT')
 							@csrf
 							<div class="form-group">
-								<label for="spdishesname1edit">Name first part</label>
+								<label for="spdishesname1edit">الجزء الأول من الاسم</label>
 								<input
 									type="text"
 									class="form-control"
 									id="spdishesname1edit"
 									name="spdishesname1edit"
 									value="{{ $data->namepart1 }}"
-									placeholder="Input dishes name first part"
+									placeholder="أدخل الجزء الأول من اسم الطبق"
 									required
 								/>
 							</div>
 
 							<div class="form-group">
-								<label for="spdishesname2edit">Name second part</label>
+								<label for="spdishesname2edit">الجزء الثاني من الاسم</label>
 								<input
 									type="text"
 									class="form-control"
 									id="spdishesname2edit"
 									name="spdishesname2edit"
 									value="{{ $data->namepart2 }}"
-									placeholder="Input dish name second part"
+									placeholder="أدخل الجزء الثاني من اسم الطبق"
 									required
 								/>
 							</div>
 
 							<div class="form-group">
-								<label for="spdishespriceedit">Price</label>
+								<label for="spdishespriceedit">السعر</label>
 								<input
 									type="number"
 									class="form-control"
 									id="spdishespriceedit"
 									name="spdishespriceedit"
 									value="{{ $data->price }}"
-									placeholder="Input dish price up to 2 decimal places"
-									pattern="[0-9]+([\.,][0-9]+)?" 
+									placeholder="أدخل سعر الطبق حتى منزلتين عشريتين"
+									pattern="[0-9]+([\.,][0-9]+)?"
 									step="0.01"
 									repuired
 								/>
 							</div>
 
 							<div class="form-group">
-								<label for="spdishesimageedit">Image upload</label>
+								<label for="spdishesimageedit">تحميل الصورة</label>
 								<div class="input-group col-xs-12">
 									<input
 										type="file"
 										class="form-control file-upload-info"
-										placeholder="Upload dish image"
+										placeholder="قم بتحميل صورة الطبق"
 										id="spdishesimageedit"
 										name="spdishesimageedit"
 										value="{{ $data->img }}"
@@ -68,23 +68,23 @@
 							</div>
 
 							<div class="form-group">
-								<label for="spdishesdescedit">Description</label>
+								<label for="spdishesdescedit">الوصف</label>
 								<textarea
 									class="form-control"
 									id="spdishesdescedit"
 									name="spdishesdescedit"
 									rows="4"
 									required
-									placeholder="Input dish description"
+									placeholder="أدخل وصف الطبق"
 								>{{ $data->desc }}</textarea>
 							</div>
 
 							@if ($isAdmin === true)
-							<button type="submit" class="btn btn-primary mr-2">Edit</button>
+							<button type="submit" class="btn btn-primary mr-2">تعديل</button>
 							@else
-							<button onclick="alert('Only admin can edit spdish item')" type="button" class="btn btn-primary mr-2">Edit</button>
+							<button onclick="alert('فقط المدير يمكنه تعديل بيانات الطبق الخاص')" type="button" class="btn btn-primary mr-2">تعديل</button>
 							@endif
-							<a href="{{ route('specialdishes.index') }}" class="btn btn-light">Cancel</a>
+							<a href="{{ route('specialdishes.index') }}" class="btn btn-light">إلغاء</a>
 						</form>
 					</div>
 				</div>
@@ -98,6 +98,5 @@
 		    tempspdishesimageedit.src = URL.createObjectURL(file)
 		  }
 		}
-		
 	</script>
 </x-admin.index>

@@ -4,46 +4,46 @@
 			<div class="col-md-6 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Food-Menu Form</h4>
-						<p class="card-description">Edit food menu info</p>
+						<h4 class="card-title">نموذج تعديل قائمة الطعام</h4>
+						<p class="card-description">تعديل معلومات عنصر في قائمة الطعام</p>
 						<form action="{{ route('foodmenu.update', $data->id ) }}" method="post" enctype="multipart/form-data">
 							@method('PUT')
 							@csrf
 							<div class="form-group">
-								<label for="productname">Name</label>
+								<label for="productname">الاسم</label>
 								<input
 									type="text"
 									class="form-control"
 									id="productname"
 									name="productname"
 									value="{{ $data->name }}"
-									placeholder="Input product name"
+									placeholder="أدخل اسم المنتج"
 									required
 								/>
 							</div>
 
 							<div class="form-group">
-								<label for="productprice">Price</label>
+								<label for="productprice">السعر</label>
 								<input
 									type="number"
 									class="form-control"
 									id="productprice"
 									name="productprice"
 									value="{{ $data->price }}"
-									placeholder="Input product price up to 2 decimal places"
-									pattern="[0-9]+([\.,][0-9]+)?" 
+									placeholder="أدخل سعر المنتج حتى منزلتين عشريتين"
+									pattern="[0-9]+([\.,][0-9]+)?"
 									step="0.01"
-									repuired
+									required
 								/>
 							</div>
 
 							<div class="form-group">
-								<label>Image upload</label>
+								<label>تحديث الصورة</label>
 								<div class="input-group col-xs-12">
 									<input
 										type="file"
 										class="form-control file-upload-info"
-										placeholder="Upload product image"
+										placeholder="قم بتحميل صورة المنتج"
 										id="productimageupdate"
 										name="productimage"
 										value="{{ $data->img }}"
@@ -55,23 +55,23 @@
 							</div>
 
 							<div class="form-group">
-								<label for="productdescription">Description</label>
+								<label for="productdescription">الوصف</label>
 								<textarea
 									class="form-control"
 									id="productdescription"
 									name="productdescription"
 									rows="4"
 									required
-									placeholder="Input product description"
+									placeholder="أدخل وصف المنتج"
 								>{{ $data->desc }}</textarea>
 							</div>
 
 							@if ($isAdmin === true)
-							<button type="submit" class="btn btn-primary mr-2">Edit</button>
+							<button type="submit" class="btn btn-primary mr-2">تعديل</button>
 							@else
-							<button onclick="alert('Only admin can edit food menu')" type="button" class="btn btn-primary mr-2">Edit</button>
+							<button onclick="alert('فقط المدير يمكنه تعديل قائمة الطعام')" type="button" class="btn btn-primary mr-2">تعديل</button>
 							@endif
-							<a href="{{ route("foodmenu.index") }}" class="btn btn-light">Cancel</a>
+							<a href="{{ route("foodmenu.index") }}" class="btn btn-light">إلغاء</a>
 						</form>
 					</div>
 				</div>
@@ -85,6 +85,5 @@
 		    tempproductimageedit.src = URL.createObjectURL(file)
 		  }
 		}
-		
 	</script>
 </x-admin.index>

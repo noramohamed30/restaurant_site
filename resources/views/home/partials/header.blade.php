@@ -22,7 +22,7 @@
 	      	@foreach ($navdata as $data)
 					     <li class="font-bold lg:px-4 lg:py-2 lg:text-left p-2.5 text-[12.5px] text-right uppercase transition ease-in-out duration-300 hover:scale-105">
 					     	<a href={{ $data['href'] }}>{{ $data['text'] }}</a>
-					     </li> 
+					     </li>
 					@endforeach
 
 					@if (Route::has('login'))
@@ -68,11 +68,11 @@
 							<x-slot name="content">
 								<!-- Account Management -->
 								<div class="block px-4 py-2 text-xs text-gray-400 text-right">
-									{{ __('Manage Account') }}
+									{{ __('ادارة الحساب') }}
 								</div>
 
 								<x-jet-dropdown-link class="text-right" href="{{ route('profile.show') }}">
-									{{ __('Profile') }}
+									{{ __('البروفايل') }}
 								</x-jet-dropdown-link>
 
 								@if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -91,12 +91,12 @@
 										href="{{ route('logout') }}"
 										@click.prevent="$root.submit();"
 									>
-										{{ __('Log Out') }}
+										{{ __('خروج') }}
 									</x-jet-dropdown-link>
 								</form>
 								<div class="border-t border-gray-100"></div>
 								<x-jet-dropdown-link class="text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right" href="{{ route('admin.index') }}" target="_blank">
-									Dashboard
+									لوحة التحكم
 								</x-jet-dropdown-link>
 							</x-slot>
 						</x-jet-dropdown>
@@ -110,7 +110,7 @@
 										type="button"
 										class="bg-transparent border border-transparent duration-300 ease-in-out focus:outline-none font-bold font-medium hover:scale-105 inline-flex items-center lg:text-left text-[12.5px] text-gray-900 text-right transition uppercase"
 									>
-										User
+										مستخدم
 									</button>
 								</span>
 							</x-slot>
@@ -118,21 +118,21 @@
 							<x-slot name="content">
 
 								<x-jet-dropdown-link class="text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right" href="{{ route('login') }}">
-									Login
+									دخول
 								</x-jet-dropdown-link>
 
 								@if (Route::has('register'))
 								<x-jet-dropdown-link class="text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right" href="{{ route('register') }}">
-									Register
+									تسجيل
 								</x-jet-dropdown-link>
 								@endif
 								<div class="border-t border-gray-100"></div>
 								<x-jet-dropdown-link class="text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right" href="{{ route('admin.index') }}" target="_blank">
-									Dashboard
+									لوحة التحكم
 								</x-jet-dropdown-link>
 							</x-slot>
 						</x-jet-dropdown>
-					</div>					 
+					</div>
 				@endif @endif
 
 	      </ul>
@@ -141,4 +141,3 @@
 	</header>
 	<!-- Header Area End -->
 
-				
